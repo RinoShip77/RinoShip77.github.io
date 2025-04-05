@@ -1,13 +1,3 @@
-// // Loader setup
-// let cpt;
-// function chargementComplete() {
-//     cpt = setTimeout(afficherPage, 1500);
-// }
-// function afficherPage() {
-//     document.querySelector('.loader').style.animation = 'fadeDown 1s ease forwards';
-//     document.getElementById('content').style.display = "block";
-// }
-
 // Scroll animation
 const fadeElements = document.querySelectorAll('.fade-up');
 
