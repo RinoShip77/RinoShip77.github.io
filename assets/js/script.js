@@ -1,3 +1,13 @@
+// // Loader setup
+// let cpt;
+// function chargementComplete() {
+//     cpt = setTimeout(afficherPage, 1500);
+// }
+// function afficherPage() {
+//     document.querySelector('.loader').style.animation = 'fadeDown 1s ease forwards';
+//     document.getElementById('content').style.display = "block";
+// }
+
 // Scroll animation
 const fadeElements = document.querySelectorAll('.fade-up');
 
@@ -16,12 +26,16 @@ fadeElements.forEach(element => {
 // Header scroll effect
 window.addEventListener('scroll', () => {
   const header = document.querySelector('header');
-  if (window.scrollY > 50) {
+  const nav = document.getElementById('navbar');
+
+  if (window.scrollY > 60) {
     header.style.padding = '10px 0';
     header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+    nav.style.animation = 'fadeUp 1s ease forwards';
   } else {
     header.style.padding = '20px 0';
     header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+    nav.style.animation = 'fadeDown .1s ease forwards';
   }
 });
 
@@ -146,6 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Update theme switcher position
   setTimeout(() => {
+    // document.getElementById('nightowl-switcher-default').style.position = 'sticky';
+    // document.getElementById('nightowl-switcher-default').style.top = '0';
     document.getElementById('nightowl-switcher-default').style.left = 'calc(-75px + 100vw)';
 
     let height = ((document.getElementById('header').clientHeight) - (document.getElementById('nightowl-switcher-default').clientHeight)) / 2;
@@ -167,7 +183,7 @@ window.addEventListener('resize', () => {
   document.getElementById('nightowl-switcher-default').style.top = height;
 });
 
-let mybutton = document.getElementById("myBtn");
+let mybutton = document.getElementById("topBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () { scrollFunction() };
