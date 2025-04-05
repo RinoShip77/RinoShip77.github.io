@@ -1,3 +1,12 @@
+// Loader
+setTimeout(() => {
+  document.getElementById('spinner').style.display = 'none';
+  document.getElementById('page').style.display = 'block';
+  document.getElementById('page').style.background = 'var(--blank)';
+
+  adjustThemeSwitcher();
+}, 1000);
+
 // Scroll animation
 const fadeElements = document.querySelectorAll('.fade-up');
 
@@ -21,11 +30,14 @@ window.addEventListener('scroll', () => {
   if (window.scrollY > 60) {
     header.style.padding = '10px 0';
     header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
-    nav.style.animation = 'fadeUp 1s ease forwards';
+    nav.style.animation = 'fadeUp .25s ease forwards';
+    nav.style.display = 'block';
+    nav.style.display = 'flex';
   } else {
     header.style.padding = '20px 0';
     header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
     nav.style.animation = 'fadeDown .1s ease forwards';
+    nav.style.display = 'none';
   }
 });
 
@@ -149,14 +161,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementsByClassName('footer-text')[0].innerHTML = `© ${date.getFullYear()} Olivier Bourgault`;
 
   // Update theme switcher position
-  setTimeout(() => {
-    // document.getElementById('nightowl-switcher-default').style.position = 'sticky';
-    // document.getElementById('nightowl-switcher-default').style.top = '0';
-    document.getElementById('nightowl-switcher-default').style.left = 'calc(-75px + 100vw)';
 
-    let height = ((document.getElementById('header').clientHeight) - (document.getElementById('nightowl-switcher-default').clientHeight)) / 2;
-    document.getElementById('nightowl-switcher-default').style.top = height;
-  }, 50);
+
+  adjustThemeSwitcher();
+
 });
 
 // Adjust image sizes on window resize
@@ -169,8 +177,7 @@ window.addEventListener('resize', () => {
     }
   });
 
-  let height = ((document.getElementById('header').clientHeight) - (document.getElementById('nightowl-switcher-default').clientHeight)) / 2;
-  document.getElementById('nightowl-switcher-default').style.top = height;
+  adjustThemeSwitcher();
 });
 
 let mybutton = document.getElementById("topBtn");
@@ -181,7 +188,18 @@ window.onscroll = function () { scrollFunction() };
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     mybutton.style.display = "block";
+    
   } else {
     mybutton.style.display = "none";
   }
+}
+
+// Adjust theme switcher position
+function adjustThemeSwitcher() {
+  setTimeout(() => {
+    document.getElementById('nightowl-switcher-default').style.left = 'calc(-75px + 100vw)';
+
+    let height = ((document.getElementById('header').clientHeight) - (document.getElementById('nightowl-switcher-default').clientHeight)) / 2;
+    document.getElementById('nightowl-switcher-default').style.top = height;
+  }, 50);
 }
