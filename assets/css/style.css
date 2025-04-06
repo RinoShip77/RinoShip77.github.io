@@ -59,21 +59,21 @@
   0% {
     background-position: -100% 0;
   }
-
+  
   100% {
     background-position: 200% 0;
   }
 }
 
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 /* Loader */
@@ -367,6 +367,7 @@ header {
 
 .hero-title {
   font-size: 60px;
+  font-family: 'Bungee Tint', sans-serif;
   line-height: 1.1;
   margin-bottom: 20px;
   opacity: 0;
@@ -382,13 +383,17 @@ header {
 }
 
 .hero-subtitle {
-  font-size: 18px;
-  color: #555;
+  font-size: 22px;
+  font-family: 'Roboto Condensed', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--light);
   margin-bottom: 30px;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 1s ease forwards 0.3s;
   line-height: 1.6;
+  /* Text Shadow Property */
+  text-shadow: -1px -1px 0 #555, 1px -1px 0 #555, 1px 1px 0 #555,
+    1px 1px 0 #555;
 }
 
 .button {
