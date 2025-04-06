@@ -1177,6 +1177,7 @@ footer::before {
   .hero-image {
     opacity: 0.15;
     width: 100%;
+    max-width: 50%;
   }
 
   .portfolio-grid {
@@ -1200,6 +1201,10 @@ footer::before {
 
   .hero-title {
     font-size: 32px;
+  }
+
+  .hero-image {
+      max-width: 300px;
   }
 
   .section-title {
