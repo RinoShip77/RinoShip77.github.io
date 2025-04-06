@@ -342,6 +342,7 @@ header {
   align-items: center;
   position: relative;
   overflow: hidden;
+  padding-bottom: 100%;
   background-image:
     radial-gradient(circle at 20% 30%, rgba(78, 84, 200, 0.05) 0%, transparent 50%),
     radial-gradient(circle at 80% 70%, rgba(255, 107, 107, 0.05) 0%, transparent 50%);
@@ -367,7 +368,7 @@ header {
 
 .hero-title {
   font-size: 60px;
-  font-family: 'Bungee Tint', sans-serif;
+  font-family: 'Bungee', sans-serif;
   line-height: 1.1;
   margin-bottom: 20px;
   opacity: 0;
@@ -384,16 +385,13 @@ header {
 
 .hero-subtitle {
   font-size: 22px;
-  font-family: 'Roboto Condensed', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: var(--light);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--transparent);
   margin-bottom: 30px;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 1s ease forwards 0.3s;
   line-height: 1.6;
-  /* Text Shadow Property */
-  text-shadow: -1px -1px 0 #555, 1px -1px 0 #555, 1px 1px 0 #555,
-    1px 1px 0 #555;
 }
 
 .button {
@@ -452,8 +450,6 @@ header {
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 500px;
-  max-width: 700px;
   opacity: 0;
   transform: translateX(50px);
   animation: fadeInRight 1s ease forwards 0.9s, float 6s ease-in-out infinite;
