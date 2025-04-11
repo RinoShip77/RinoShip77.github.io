@@ -1,7 +1,7 @@
 :root {
   --primary: #4e54c8;
   --primary-light: #8f94fb;
-  --secondary: #ff6b6b;
+  --secondary: #E60000;
   --secondary-light: #ffb8b8;
   --dark: #1a1a2e;
   --light: #f8f9fa;
@@ -274,7 +274,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-right: 9vw;
+  
 }
 
 .logo {
@@ -285,17 +285,11 @@ header {
   background-clip: text;
   color: transparent;
   text-decoration: none;
-  position: relative;
-  margin-right: .5em;
-  padding: 5px 0;
   white-space: nowrap;
 }
 
 .logo::after {
   content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
   height: 2px;
   background: var(--gradient-1);
@@ -349,7 +343,7 @@ header {
 
 /* Hero Section */
 .hero {
-  height: 75vh;
+  height: 100em;
   display: flex;
   align-items: center;
   position: relative;
@@ -1181,11 +1175,7 @@ footer::before {
   }
 
   .hero-image {
-    min-width: 700px;
-  }
-
-  .hero {
-    height: 100vh;
+    min-width: 25vw;
   }
 
   .about-content {
@@ -1207,11 +1197,6 @@ footer::before {
     min-width: 400px;
   }
 
-  .hero {
-    height: 125vh;
-    padding-bottom: 100%;
-  }
-
   .about-content {
     flex-direction: column-reverse;
   }
@@ -1230,16 +1215,11 @@ footer::before {
   .hero-image {
     width: 400px;
   }
-  
-  .hero {
-    height: 150vh;
-    padding-bottom: 100%;
-  }
-  
+
   .about-content {
     flex-direction: column-reverse;
   }
-  
+
   .about-image {
     margin-bottom: 40px;
     width: 100%;
@@ -1250,14 +1230,9 @@ footer::before {
   .hero-title {
     font-size: 40px;
   }
-  
-  .hero-image {
-      width: 400px;
-  }
 
-  .hero {
-    height: 150vh;
-    padding-bottom: 75%;
+  .hero-image {
+    min-width: 25vw;
   }
 
   .portfolio-grid {
@@ -1279,11 +1254,6 @@ footer::before {
     gap: 15px;
   }
 
-  .hero {
-    height: 125vh;
-    padding-bottom: 75%;
-  }
-
   .hero-title {
     font-size: 32px;
   }
@@ -1298,5 +1268,11 @@ footer::before {
 
   .contact-form {
     padding: 30px 20px;
+  }
+}
+
+@media (pointer: coarse) {
+  .hero {
+    height: 150vh;
   }
 }
