@@ -343,13 +343,13 @@ header {
 
 /* Hero Section */
 .hero {
-  height: 100em;
+  height: 75em;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
   padding-top: 5em;
-  padding-bottom: 25%;
+  padding-bottom: 50%;
   background-image:
     radial-gradient(circle at 20% 30%, rgba(78, 84, 200, 0.05) 0%, transparent 50%),
     radial-gradient(circle at 80% 70%, rgba(255, 107, 107, 0.05) 0%, transparent 50%);
@@ -1174,6 +1174,11 @@ footer::before {
     font-size: 48px;
   }
 
+  .hero {
+    height: 100em;
+    padding-bottom: 25%;
+  }
+
   .hero-image {
     min-width: 25vw;
   }
@@ -1271,8 +1276,8 @@ footer::before {
   }
 }
 
-@media (pointer: coarse) {
-  .hero {
+@media (min-width: 393px) and (max-width: 852px) and (hover: none) and (pointer: coarse) {
+  /* .hero {
     height: 150vh;
-  }
+  } */
 }
