@@ -1276,8 +1276,8 @@ footer::before {
   }
 }
 
-@media (min-width: 393px) and (max-width: 852px) and (hover: none) and (pointer: coarse) {
-  /* .hero {
+@supports (-wwebkit-touch-callout: none) {
+  .hero {
     height: 150vh;
-  } */
+  }
 }
