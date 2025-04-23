@@ -610,6 +610,7 @@ header {
   background-color: #fafafa;
   position: relative;
   overflow: hidden;
+  padding-top: 3em;
 }
 
 .portfolio::before {
@@ -811,7 +812,7 @@ header {
 
 /* Contact Section */
 .contact {
-  padding: 120px 0;
+  padding: 2em;
   background-color: #fff;
   position: relative;
   overflow: hidden;
@@ -943,6 +944,12 @@ header {
 .submit-button:hover::before {
   left: 100%;
   animation: shimmer 1.5s infinite;
+}
+
+.badge-base {
+  display: flex;
+  justify-content: center;
+  margin-top: 3em;
 }
 
 /* Footer */
