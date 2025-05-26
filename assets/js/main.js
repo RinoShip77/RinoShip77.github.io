@@ -152,34 +152,6 @@
   });
 
   /**
-   * Init swiper sliders
-   */
-  function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
-
-      if (swiperElement.classList.contains("swiper-tab")) {
-        initSwiperWithCustomPagination(swiperElement, config);
-      } else {
-        new Swiper(swiperElement, config);
-      }
-    });
-  }
-
-  window.addEventListener("load", initSwiper);
-
-  /**
-   * Frequently Asked Questions Toggle
-   */
-  document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
-    faqItem.addEventListener('click', () => {
-      faqItem.parentNode.classList.toggle('faq-active');
-    });
-  });
-
-  /**
    * Correct scrolling position upon page load for URLs containing hash links.
    */
   window.addEventListener('load', function (e) {
@@ -235,12 +207,12 @@ async function getData(url) {
     if (!url.includes("?")) {
       displayData(url.substring((url.indexOf("github.com/") + 11)), data);
     } else {
-      // console.log(data);
       if (document.getElementById("projects").innerHTML.length !== 0) {
         document.getElementById("projects").innerHTML = parseInt(document.getElementById("projects").innerHTML) + data.length;
       }
       document.getElementById("projects").innerHTML = parseInt(document.getElementById("projects").innerHTML);
     }
+
   } catch (error) {
     console.error('There was an error!', error);
   }
@@ -252,21 +224,16 @@ function displayData(url, data) {
   if (url.includes("rinoship77")) {
     switch (url.slice(0, url.indexOf("/"))) {
       case 'users':
-        // console.log(data);
         document.getElementById('avatar').src = data.avatar_url;
         document.getElementById('bio').innerHTML = data.bio;
         document.getElementById('experience').innerHTML = diffDate(new Date(data.created_at), date);
         document.getElementById('age').innerHTML = diffDate(new Date("2001-05-08"), date);
-
-        localStorage.setItem("users", JSON.stringify(data));
         break;
 
       case 'repos':
-        // console.log(data);
         getData(data.contents_url.slice(0, (data.contents_url.lastIndexOf("/") + 1)));
     }
   } else {
-    // console.log(data)
     for (let index = 0; index < data.length - 1; index++) {
       getData(data[index].url);
     }
@@ -274,9 +241,19 @@ function displayData(url, data) {
 }
 
 function diffDate(date1, date2) {
-  // Calculate the approximate number of years by dividing the difference in days by the average number of days in a year (365.25)
   return Math.abs(Math.round((((date2.getTime() - date1.getTime()) / 1000) / 86400) / 365.25));
 }
 
+function sendEmail() {
+  if(document.getElementsByName('message')[0].value.length !== 0) {
+    window.location.href = `mailto:bourgault.olivier8501@gmail.com&subject=Contact de ${document.getElementsByName('name')[0].value} pour ${document.getElementsByName('subject')[0].value.toLowerCase()}&body=${document.getElementsByName('message')[0].value}`;
+  }
+}
+
+function switchTheme() {
+  document.body.classList.toggle("dark");
+}
+
+document.getElementById("projects").innerHTML = 0;
 // getData('https://api.github.com/users/rinoship77');
 // getData('https://api.github.com/repos/rinoship77/mesprojets');

@@ -17,7 +17,7 @@
     rel="stylesheet">
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" ¨>
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
@@ -48,24 +48,6 @@
           <li><a href="#resume">CV</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#services">Services</a></li>
-          <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                    class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li> -->
           <li><a href="#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -74,6 +56,7 @@
         <a href="https://github.com/RinoShip77" aria-label="Profil Github"><i class="bi bi-github"></i></a>
         <a href="https://www.linkedin.com/in/olivier-bourgault-5b950428a" aria-label="Profil Linkedin"><i
             class="bi bi-linkedin"></i></a>
+        <button class="btn rounded-5 ms-1" onclick="switchTheme()"><i class="bi bi-moon-stars-fill"></i></button>
       </div>
     </div>
   </header>
@@ -103,17 +86,13 @@
             <div class="d-flex justify-content-center">
               <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
                 <div class="stat-item">
-                  <span class="stat-number" aria-label="4+"><span id="experience">4</span>+</span>
+                  <span class="stat-number"><span id="experience">4</span>+</span>
                   <span class="stat-label">Années d'expérience</span>
                 </div>
                 <div class="stat-item">
-                  <span class="stat-number" aria-label="39+"><span id="projects">0</span>+</span>
+                  <span class="stat-number"><span id="projects">39</span>+</span>
                   <span class="stat-label">Projets complétés</span>
                 </div>
-                <!-- <div class="stat-item">
-                  <span class="stat-number">50+</span>
-                  <span class="stat-label">Happy Clients</span>
-                </div> -->
               </div>
             </div>
           </div>
@@ -128,7 +107,6 @@
         </div>
       </div>
     </section><!-- /Hero Section -->
-
     <!-- About Section -->
     <section id="about" class="about section light-background">
       <!-- Section Title -->
@@ -170,7 +148,7 @@
                   <div class="col-6">
                     <div class="info-item">
                       <span class="label">Téléphone</span>
-                      <span class="value">+1 (819) 962 0709</span>
+                      <span class="value">+1 (819) 962-0709</span>
                     </div>
                   </div>
                   <div class="col-6">
@@ -196,15 +174,16 @@
         </div>
       </div>
     </section><!-- /About Section -->
-
     <!-- Skills Section -->
     <section id="skills" class="skills section">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row g-4 skills-animation">
           <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
             <div class="skill-box">
-              <h3>HTML</h3>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
+              <div class="d-flex justify-content-between">
+                <h3>HTML</h3>
+                <img src="assets/img/portfolio/html_icon.png" width="15" height="15" alt="HTML">
+              </div>
               <span class="text-end d-block">95%</span>
               <div class="progress">
                 <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
@@ -214,8 +193,10 @@
           </div>
           <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
             <div class="skill-box">
-              <h3>CSS</h3>
-              <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur.</p>
+              <div class="d-flex justify-content-between">
+                <h3>CSS</h3>
+                <i class="bi bi-css"></i>
+              </div>
               <span class="text-end d-block">85%</span>
               <div class="progress">
                 <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
@@ -225,8 +206,10 @@
           </div>
           <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
             <div class="skill-box">
-              <h3>JavaScript</h3>
-              <p>Neque porro quisquam est qui dolorem ipsum quia dolor.</p>
+              <div class="d-flex justify-content-between">
+                <h3>JavaScript</h3>
+                <i class="bi bi-javascript"></i>
+              </div>
               <span class="text-end d-block">85%</span>
               <div class="progress">
                 <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
@@ -236,8 +219,10 @@
           </div>
           <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
             <div class="skill-box">
-              <h3>TypeScript</h3>
-              <p>Quis autem vel eum iure reprehenderit qui in ea voluptate.</p>
+              <div class="d-flex justify-content-between">
+                <h3>TypeScript</h3>
+                <i class="bi bi-typescript"></i>
+              </div>
               <span class="text-end d-block">75%</span>
               <div class="progress">
                 <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
@@ -247,8 +232,10 @@
           </div>
           <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
             <div class="skill-box">
-              <h3>Visual Studio Code</h3>
-              <p>Quis autem vel eum iure reprehenderit qui in ea voluptate.</p>
+              <div class="d-flex justify-content-between">
+                <h3>Visual Studio Code</h3>
+                <img src="assets/img/portfolio/vs_code_icon.png" width="20" height="20" alt="Visual Studio Code">
+              </div>
               <span class="text-end d-block">75%</span>
               <div class="progress">
                 <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
@@ -258,8 +245,10 @@
           </div>
           <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
             <div class="skill-box">
-              <h3>Windows</h3>
-              <p>Quis autem vel eum iure reprehenderit qui in ea voluptate.</p>
+              <div class="d-flex justify-content-between">
+                <h3>Windows</h3>
+                <i class="bi bi-windows"></i>
+              </div>
               <span class="text-end d-block">80%</span>
               <div class="progress">
                 <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
@@ -269,8 +258,10 @@
           </div>
           <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
             <div class="skill-box">
-              <h3>GitHub</h3>
-              <p>Quis autem vel eum iure reprehenderit qui in ea voluptate.</p>
+              <div class="d-flex justify-content-between">
+                <h3>Git</h3>
+                <i class="bi bi-git"></i>
+              </div>
               <span class="text-end d-block">70%</span>
               <div class="progress">
                 <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
@@ -280,8 +271,10 @@
           </div>
           <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
             <div class="skill-box">
-              <h3>Teams</h3>
-              <p>Quis autem vel eum iure reprehenderit qui in ea voluptate.</p>
+              <div class="d-flex justify-content-between">
+                <h3>Teams</h3>
+                <i class="bi bi-microsoft-teams"></i>
+              </div>
               <span class="text-end d-block">85%</span>
               <div class="progress">
                 <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
@@ -292,12 +285,12 @@
         </div>
         <div class="mt-5 cta-buttons">
           <div class="d-flex justify-content-center gap-5">
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#languages"
-              aria-expanded="false" aria-controls="languageCollapse">
+            <button class="btn btn-primary text-nowrap" type="button" data-bs-toggle="collapse"
+              data-bs-target="#languages" aria-expanded="false" aria-controls="languageCollapse">
               Voir tous mes langages.
             </button>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#softwares"
-              aria-expanded="false" aria-controls="softwareCollapse">
+            <button class="btn btn-primary text-nowrap" type="button" data-bs-toggle="collapse"
+              data-bs-target="#softwares" aria-expanded="false" aria-controls="softwareCollapse">
               Voir tous mes logiciels.
             </button>
           </div>
@@ -371,7 +364,6 @@
         </div>
       </div>
     </section><!-- /Skills Section -->
-
     <!-- Resume Section -->
     <section id="resume" class="resume section">
       <!-- Section Title -->
@@ -383,109 +375,94 @@
               stroke-width="2"></path>
           </svg>
         </div>
-        <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel
-          illum qui dolorem</p>
+        <p>Ceci est un simple aperçu de mon cirriculum vitea. Je vous invite à consulter le <a href="assets/CV_CL.pdf"
+            title="Télécharger mon CV (en PDF)" download>document</a> PDF.</p>
       </div><!-- End Section Title -->
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row">
           <div class="col-12">
             <div class="resume-wrapper">
               <div class="resume-block" data-aos="fade-up">
-
-                <h2>Work Experience</h2>
-                <p class="lead">Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet
-                  adipiscing sem neque sed ipsum.</p>
+                <h2>Expérience de travail</h2>
                 <div class="timeline">
                   <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
                     <div class="timeline-left">
-                      <h4 class="company">Etiam Industries</h4>
-                      <span class="period">Jun, 2023 - Current</span>
+                      <h4 class="company">Chambre des Communes - House of Commons</h4>
                     </div>
                     <div class="timeline-dot"></div>
                     <div class="timeline-right">
-                      <h3 class="position">Project Lead</h3>
-                      <p class="description">Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et
-                        quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
-                        consequatur neque etlon sader mart dila</p>
+                      <span class="period">Été 2024</span>
+                      <h3 class="position">Technicien informatique</h3>
+                      <p class="description">Tester des sites et des applications pour assurer que ceux-ci sont
+                        accessible selon les directives pour l'accessibilité du contenu Web (WCAG). Transcrire le
+                        résultat de mes tests dans Azure DevOps et ensuite créer des rapports Excel détaillés sur ces
+                        problèmes.</p>
+                    </div>
+                    <div class="timeline-right">
+                      <span class="period">Été 2023</span>
+                      <h3 class="position">Technicien informatique</h3>
+                      <p class="description">Assisté les utilisateurs dans la résolution de problèmes par l'entremise
+                        d'un système de billets. Si nécessaire, regarder dans la base de données de l'application pour
+                        trouver la cause du problème. J'ai créé un script PowerShell pour aider mon équipe à accélérer
+                        le processus de résolutions de problèmes. Celui-ci compare le contenu de deux dossiers en
+                        comparant une ligne après l'autre.
+                      </p>
                     </div>
                   </div>
                   <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
                     <div class="timeline-left">
-                      <h4 class="company">Nullam Corp</h4>
-                      <span class="period">2019 - 2023</span>
+                      <h4 class="company">VIWEB</h4>
+                      <span class="period">Hiver 2024</span>
                     </div>
                     <div class="timeline-dot"></div>
                     <div class="timeline-right">
-                      <h3 class="position">Senior graphic design specialist</h3>
+                      <h3 class="position">Stagiaire en développement Web</h3>
                       <p class="description">
-                        Curabitur ullamcorper ultricies nisi nam eget dui etiam rhoncus maecenas tempus.
+                        Développer mon propre thème pour un site Wordpress de ventes en ligne avec l'aide de l'extension
+                        WooCommerce. Personnaliser le catalogue et automatiser le processus d'achat.
                       </p>
-                      <ul>
-                        <li>Lead in the design, development, and implementation of the graphic, layout, and production
-                          communication materials</li>
-                        <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the
-                          project. </li>
-                        <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of
-                          the design</li>
-                        <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
-                      </ul>
-                      <p></p>
                     </div>
                   </div>
                   <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
                     <div class="timeline-left">
-                      <h4 class="company">Stepping Stone Ltd.</h4>
-                      <span class="period">2015-2019</span>
+                      <h4 class="company">Cégep de Saint-Jérôme</h4>
+                      <span class="period">2023 - 2024</span>
                     </div>
                     <div class="timeline-dot"></div>
                     <div class="timeline-right">
-                      <h3 class="position">Graphic design specialist</h3>
-                      <p class="description">Curabitur ullamcorper ultricies nisi nam eget dui etiam rhoncus maecenas
-                        tempus.</p>
+                      <h3 class="position">Tuteur TIC</h3>
+                      <p class="description">Accueillir et supporter les cégépiens sur le plan technique. Assister avec
+                        l'impression. Assister dans l'accès aux principaux services en ligne du collège. Assister dans
+                        l'utilisation de base avec la suite
+                        Microsoft 365.</p>
                     </div>
                   </div>
                 </div>
               </div>
-
               <div class="resume-block" data-aos="fade-up" data-aos-delay="100">
-                <h2>My Education</h2>
-                <p class="lead">Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet
-                  adipiscing.</p>
+                <h2>Mon éducation</h2>
                 <div class="timeline">
                   <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
                     <div class="timeline-left">
-                      <h4 class="company">Vestibulum University</h4>
-                      <span class="period">2017-2019</span>
+                      <h4 class="company">Cégep de Saint-Jérôme</h4>
+                      <span class="period">2024</span>
                     </div>
                     <div class="timeline-dot"></div>
                     <div class="timeline-right">
-                      <h3 class="position">Diploma in Consequat</h3>
-                      <p class="description">Curabitur ullamcorper ultricies nisi nam eget dui etiam rhoncus maecenas
-                        tempus.</p>
+                      <h3 class="position">Diplôme d'études collégiales en technique de l'informatique.</h3>
+                      <p class="description">J'ai débuté mon parcours en Sciences informatique et Mathématique. J'ai
+                        finalement changé de programme pour me spécialiser en informatique.</p>
                     </div>
                   </div>
                   <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
                     <div class="timeline-left">
-                      <h4 class="company">Nullam Corp</h4>
-                      <span class="period">2019 - 2023</span>
+                      <h3 class="company">École secondaire Hormisdas-Gamelin</h3>
+                      <span class="period">2018</span>
                     </div>
                     <div class="timeline-dot"></div>
                     <div class="timeline-right">
-                      <h3 class="position">Master of Fine Arts &amp; Graphic Design</h3>
-                      <p class="description">Curabitur ullamcorper ultricies nisi nam eget dui etiam rhoncus maecenas
-                        tempus.</p>
-                    </div>
-                  </div>
-                  <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
-                    <div class="timeline-left">
-                      <h4 class="company">Vestibulum University</h4>
-                      <span class="period">2015-2019</span>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-right">
-                      <h3 class="position">Bachelor of Fine Arts &amp; Graphic Design</h3>
-                      <p class="description">Curabitur ullamcorper ultricies nisi nam eget dui etiam rhoncus maecenas
-                        tempus.</p>
+                      <h4 class="position">Diplôme d'études secondaires</h4>
+                      <p class="description">Mon parcours était dans le programme sportif.</p>
                     </div>
                   </div>
                 </div>
@@ -495,7 +472,6 @@
         </div>
       </div>
     </section><!-- /Resume Section -->
-
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio section">
       <!-- Section Title -->
@@ -544,7 +520,6 @@
               </div>
             </div>
             <!-- End Portfolio Item -->
-
             <!-- Start Portfolio Item -->
             <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-profesionnal">
               <div class="portfolio-card">
@@ -567,7 +542,6 @@
               </div>
             </div>
             <!-- End Portfolio Item -->
-
             <!-- Start Portfolio Item -->
             <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-personnal">
               <div class="portfolio-card">
@@ -589,7 +563,6 @@
               </div>
             </div>
             <!-- End Portfolio Item -->
-
             <!-- Start Portfolio Item -->
             <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-school">
               <div class="portfolio-card">
@@ -611,7 +584,6 @@
               </div>
             </div>
             <!-- End Portfolio Item -->
-
             <!-- Start Portfolio Item -->
             <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-school">
               <div class="portfolio-card">
@@ -633,7 +605,6 @@
               </div>
             </div>
             <!-- End Portfolio Item -->
-
             <!-- Start Portfolio Item -->
             <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-personnal">
               <div class="portfolio-card">
@@ -643,7 +614,8 @@
                     <div class="portfolio-actions">
                       <a href="assets/img/portfolio/shopro.png" class="glightbox preview-link"
                         data-gallery="portfolio-gallery-motion"><i class="bi bi-eye"></i></a>
-                      <a href="portfolio-details.html" class="details-link"><i class="bi bi-arrow-right"></i></a>
+                      <a href="https://github.com/RinoShip77/MesProjets/tree/main/Personnel/Shopro" target="_blank"
+                        class="details-link"><i class="bi bi-arrow-right"></i></a>
                     </div>
                   </div>
                 </div>
@@ -659,7 +631,6 @@
         </div>
       </div>
     </section><!-- /Portfolio Section -->
-
     <!-- Contact Section -->
     <section id="contact" class="contact section light-background">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -667,23 +638,22 @@
           <div class="col-lg-6">
             <div class="content" data-aos="fade-up" data-aos-delay="200">
               <div class="section-category mb-3">Contact</div>
-              <h2 class="display-5 mb-4">Nemo enim ipsam voluptatem quia voluptas aspernatur</h2>
-              <p class="lead mb-4">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
-                laboriosam.</p>
+              <h2 class="display-5 mb-4">Contactez moi</h2>
+              <p class="lead mb-4">Un simple courriel et je pourrai aider votre entreprise à changer le monde.</p>
               <div class="contact-info mt-5">
                 <div class="info-item d-flex mb-3">
                   <i class="bi bi-envelope-at me-3"></i>
-                  <span>info@example.com</span>
+                  <span>bourgault.olivier8501@gmail.com</span>
                 </div>
                 <div class="info-item d-flex mb-3">
                   <i class="bi bi-telephone me-3"></i>
-                  <span>+1 5589 55488 558</span>
+                  <span>+1 (819) 962-0709</span>
                 </div>
                 <div class="info-item d-flex mb-4">
                   <i class="bi bi-geo-alt me-3"></i>
-                  <span>A108 Adam Street, New York, NY 535022</span>
+                  <span>508 rue Costello, Gatineau, QC J8L 1Y3</span>
                 </div>
-                <a href="#" class="map-link d-inline-flex align-items-center">
+                <a href="https://maps.app.goo.gl/ZZXjt6SFtjhXeJMb8" class="map-link d-inline-flex align-items-center">
                   Open Map
                   <i class="bi bi-arrow-right ms-2"></i>
                 </a>
@@ -693,26 +663,23 @@
           <div class="col-lg-6">
             <div class="contact-form card" data-aos="fade-up" data-aos-delay="300">
               <div class="card-body p-4 p-lg-5">
-                <form action="forms/contact.php" method="post" class="php-email-form">
+                <form action="" class="email-form">
                   <div class="row gy-4">
                     <div class="col-12">
-                      <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                      <input type="text" name="name" class="form-control" placeholder="Nom" required>
                     </div>
                     <div class="col-12 ">
-                      <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                      <input type="email" class="form-control" name="email"
+                        placeholder="bourgault.olivier8501@gmail.com" required readonly disabled>
                     </div>
                     <div class="col-12">
-                      <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                      <input type="text" class="form-control" name="subject" placeholder="Subjet" required>
                     </div>
                     <div class="col-12">
-                      <textarea class="form-control" name="message" rows="6" placeholder="Message"
-                        required=""></textarea>
+                      <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
                     </div>
                     <div class="col-12 text-center">
-                      <div class="loading">Loading</div>
-                      <div class="error-message"></div>
-                      <div class="sent-message">Your message has been sent. Thank you!</div>
-                      <button type="submit" class="btn btn-submit w-100">Submit Message</button>
+                      <button type="submit" onclick="sendEmail()" class="btn btn-submit w-100">Submit Message</button>
                     </div>
                   </div>
                 </form>
@@ -720,21 +687,27 @@
             </div>
           </div>
         </div>
+        <div class="d-flex justify-content-center">
+          <div class="badge-base LI-profile-badge mt-5" data-locale="fr_FR" data-size="large" data-theme="light"
+            data-type="HORIZONTAL" data-vanity="olivier-bourgault-5b950428a" data-version="v1"><a
+              class="badge-base__link LI-simple-link"
+              href="https://ca.linkedin.com/in/olivier-bourgault-5b950428a?trk=profile-badge"></a>
+          </div>
+        </div>
       </div>
     </section><!-- /Contact Section -->
   </main>
-
   <footer id="footer" class="footer">
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">Olvier Bourgault</strong> <span>All Rights Reserved</span>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Olvier Bourgault</strong></p><span>All Rights
+          Reserved</span>
         </p>
       </div>
       <div class="social-links d-flex justify-content-center">
-        <a href=""><i class="bi bi-twitter-x"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/RinoShip77" aria-label="Profil Github"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/olivier-bourgault-5b950428a" aria-label="Profil Linkedin"><i
+            class="bi bi-linkedin"></i></a>
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
@@ -749,20 +722,17 @@
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
-
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
+  <!-- LinkdIn profile -->
+  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
 </body>
 
 </html>
