@@ -235,11 +235,11 @@ async function getData(url) {
     if (!url.includes("?")) {
       displayData(url.substring((url.indexOf("github.com/") + 11)), data);
     } else {
-      console.log(data);
+      // console.log(data);
       if (document.getElementById("projects").innerHTML.length !== 0) {
         document.getElementById("projects").innerHTML = parseInt(document.getElementById("projects").innerHTML) + data.length;
       }
-      document.getElementById("projects").innerHTML = `${parseInt(document.getElementById("projects").innerHTML)}+`;
+      document.getElementById("projects").innerHTML = parseInt(document.getElementById("projects").innerHTML);
     }
   } catch (error) {
     console.error('There was an error!', error);
@@ -255,13 +255,10 @@ function displayData(url, data) {
         // console.log(data);
         document.getElementById('avatar').src = data.avatar_url;
         document.getElementById('bio').innerHTML = data.bio;
-        document.getElementById('experience').innerHTML = `${diffDate(new Date(data.created_at), date)}+`;
+        document.getElementById('experience').innerHTML = diffDate(new Date(data.created_at), date);
+        document.getElementById('age').innerHTML = diffDate(new Date("2001-05-08"), date);
 
-        for (let i = 0; i < document.getElementsByClassName("name").length; i++) {
-          document.getElementsByClassName("name")[i].innerHTML = data.name;
-        }
-
-        document.getElementById('age').innerHTML = `${diffDate(new Date("2001-05-08"), date)} ans`
+        localStorage.setItem("users", JSON.stringify(data));
         break;
 
       case 'repos':
