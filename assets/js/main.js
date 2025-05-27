@@ -208,7 +208,11 @@ async function getData(url) {
       displayData(url.substring((url.indexOf("github.com/") + 11)), data);
     } else {
       if (document.getElementById("projects").innerHTML.length !== 0) {
-        document.getElementById("projects").innerHTML = parseInt(document.getElementById("projects").innerHTML) + data.length;
+        data.forEach(projects => {
+          if(projects.type == "dir") {
+            document.getElementById("projects").innerHTML = parseInt(document.getElementById("projects").innerHTML) + 1;
+          }
+        });
       }
       document.getElementById("projects").innerHTML = parseInt(document.getElementById("projects").innerHTML);
     }
@@ -265,6 +269,8 @@ function switchTheme(color = "dark") {
   document.body.classList.toggle(color);
 }
 
-document.getElementById("projects").innerHTML = 0;
-getData('https://api.github.com/users/rinoship77');
-getData('https://api.github.com/repos/rinoship77/mesprojets');
+if(location.href.includes("https")) {
+  document.getElementById("projects").innerHTML = 0;
+  getData('https://api.github.com/users/rinoship77');
+  getData('https://api.github.com/repos/rinoship77/mesprojets');
+}
