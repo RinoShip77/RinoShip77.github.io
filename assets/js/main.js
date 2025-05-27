@@ -265,15 +265,6 @@ function switchTheme(color = "dark") {
   document.body.classList.toggle(color);
 }
 
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'fr',
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-    width: 200,
-    height: 50
-  }, 'google_translate_element');
-}
-
 document.getElementById("projects").innerHTML = 0;
 getData('https://api.github.com/users/rinoship77');
 getData('https://api.github.com/repos/rinoship77/mesprojets');
