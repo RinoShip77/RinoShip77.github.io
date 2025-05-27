@@ -254,19 +254,15 @@ function sendEmail() {
   }
 }
 
-function switchTheme(color = "dark") {
-  switch (color) {
-    case "light":
-      document.getElementById("themeSwitcher").classList.replace("bi-sun-fill", "bi-moon-fill");
-      break;
-
-    case "dark":
-      document.getElementById("themeSwitcher").classList.replace("bi-moon-fill", "bi-sun-fill");
-      document.getElementById("themeSwitcher").classList.toggle("text-secondary");
-      break;
+function switchTheme(themeSwitch) {
+  console.log(themeSwitch);
+  if(!themeSwitch) {
+    document.getElementById("themeSwitcher").classList.replace("bi-moon-stars-fill", "bi-sun-fill");
+  } else {
+    document.getElementById("themeSwitcher").classList.replace("bi-sun-fill", "bi-moon-stars-fill");
   }
 
-  document.body.classList.toggle(color);
+  document.body.classList.toggle("dark");
 }
 
 if(location.href.includes("https")) {

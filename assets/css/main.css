@@ -176,7 +176,7 @@ h6 {
   padding-left: 6px;
   display: inline-block;
   transition: 0.3s;
-  font-size: 16px;
+  font-size: 1em;
 }
 
 .header .header-social-links a:hover {
