@@ -274,6 +274,6 @@ function googleTranslateElementInit() {
   }, 'google_translate_element');
 }
 
-document.getElementById("projects").innerHTML = 0;
+//document.getElementById("projects").innerHTML = 0;
 getData('https://api.github.com/users/rinoship77');
 getData('https://api.github.com/repos/rinoship77/mesprojets');
