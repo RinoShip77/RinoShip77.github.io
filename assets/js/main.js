@@ -210,7 +210,6 @@ async function getData(url) {
       if (document.getElementById("projects").innerHTML.length !== 0) {
         data.forEach(projects => {
           if(projects.type === "dir") {
-            console.log(projects.name)
             document.getElementById("projects").innerHTML = parseInt(document.getElementById("projects").innerHTML) + 1;
           }
         });
@@ -271,7 +270,6 @@ function switchTheme(color = "dark") {
 }
 
 if(location.href.includes("https")) {
-  console.log("request");
   document.getElementById("projects").innerHTML = 0;
   getData('https://api.github.com/users/rinoship77');
   getData('https://api.github.com/repos/rinoship77/mesprojets');
