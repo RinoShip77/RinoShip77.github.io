@@ -171,10 +171,6 @@ h6 {
   color: var(--heading-color);
 }
 
-.header .header-social-links {
-  padding-right: 15px;
-}
-
 .header .header-social-links a {
   color: color-mix(in srgb, var(--default-color), transparent 40%);
   padding-left: 6px;
