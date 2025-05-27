@@ -245,15 +245,35 @@ function diffDate(date1, date2) {
 }
 
 function sendEmail() {
-  if(document.getElementsByName('message')[0].value.length !== 0) {
+  if (document.getElementsByName('message')[0].value.length !== 0) {
     window.location.href = `mailto:bourgault.olivier8501@gmail.com&subject=Contact de ${document.getElementsByName('name')[0].value} pour ${document.getElementsByName('subject')[0].value.toLowerCase()}&body=${document.getElementsByName('message')[0].value}`;
   }
 }
 
-function switchTheme() {
-  document.body.classList.toggle("dark");
+function switchTheme(color = "dark") {
+  switch (color) {
+    case "light":
+      document.getElementById("themeSwitcher").classList.replace("bi-sun-fill", "bi-moon-fill");
+      break;
+
+    case "dark":
+      document.getElementById("themeSwitcher").classList.replace("bi-moon-fill", "bi-sun-fill");
+      document.getElementById("themeSwitcher").classList.toggle("text-secondary");
+      break;
+  }
+
+  document.body.classList.toggle(color);
+}
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'fr',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    width: 200,
+    height: 50
+  }, 'google_translate_element');
 }
 
 document.getElementById("projects").innerHTML = 0;
-// getData('https://api.github.com/users/rinoship77');
-// getData('https://api.github.com/repos/rinoship77/mesprojets');
+getData('https://api.github.com/users/rinoship77');
+getData('https://api.github.com/repos/rinoship77/mesprojets');
