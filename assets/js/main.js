@@ -255,13 +255,14 @@ function sendEmail() {
 }
 
 function switchTheme(themeSwitch) {
-  console.log(themeSwitch);
   if(!themeSwitch) {
     document.getElementById("themeSwitcher").classList.replace("bi-moon-stars-fill", "bi-sun-fill");
     document.getElementById("skills-collapsable").setAttribute("data-bs-theme", "dark");
+    document.getElementById("logo").src = `assets/img/logo/dark.png`;
   } else {
     document.getElementById("themeSwitcher").classList.replace("bi-sun-fill", "bi-moon-stars-fill");
     document.getElementById("skills-collapsable").removeAttribute("data-bs-theme");
+    document.getElementById("logo").src = `assets/img/logo/light.png`;
   }
 
   document.body.classList.toggle("dark");
@@ -275,7 +276,7 @@ function adjustSkills(category) {
 
 if(location.href.includes("https")) {
   document.getElementById("projects").innerHTML = 0;
-  
+
   getData('https://api.github.com/users/rinoship77');
   getData('https://api.github.com/repos/rinoship77/mesprojets');
 }
