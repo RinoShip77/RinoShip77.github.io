@@ -203,7 +203,6 @@ async function getData(url) {
     }
 
     const data = await response.json();
-    console.log(data);
 
     if (!url.includes("?")) {
       displayData(url.substring((url.indexOf("github.com/") + 11)), data);
@@ -276,5 +275,5 @@ function googleTranslateElementInit() {
 }
 
 //document.getElementById("projects").innerHTML = 0;
-getData('https://api.github.com/users/rinoship77');
-getData('https://api.github.com/repos/rinoship77/mesprojets');
+//getData('https://api.github.com/users/rinoship77');
+//getData('https://api.github.com/repos/rinoship77/mesprojets');
