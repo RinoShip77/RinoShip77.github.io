@@ -209,7 +209,7 @@ async function getData(url) {
     } else {
       if (document.getElementById("projects").innerHTML.length !== 0) {
         data.forEach(projects => {
-          if(projects.type === "dir") {
+          if (projects.type === "dir") {
             document.getElementById("projects").innerHTML = parseInt(document.getElementById("projects").innerHTML) + 1;
           }
         });
@@ -255,13 +255,13 @@ function sendEmail() {
 }
 
 function switchTheme(themeSwitch) {
-  if(!themeSwitch) {
+  if (!themeSwitch) {
     document.getElementById("themeSwitcher").classList.replace("bi-moon-stars-fill", "bi-sun-fill");
-    document.getElementById("skills-collapsable").setAttribute("data-bs-theme", "dark");
+    document.body.setAttribute("data-bs-theme", "dark");
     document.getElementById("logo").src = `assets/img/logo/dark.png`;
   } else {
     document.getElementById("themeSwitcher").classList.replace("bi-sun-fill", "bi-moon-stars-fill");
-    document.getElementById("skills-collapsable").removeAttribute("data-bs-theme");
+    document.body.removeAttribute("data-bs-theme");
     document.getElementById("logo").src = `assets/img/logo/light.png`;
   }
 
@@ -274,7 +274,7 @@ function adjustSkills(category) {
   }
 }
 
-if(location.href.includes("https")) {
+if (location.href.includes("https")) {
   document.getElementById("projects").innerHTML = 0;
 
   getData('https://api.github.com/users/rinoship77');
