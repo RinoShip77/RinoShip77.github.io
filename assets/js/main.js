@@ -276,10 +276,13 @@ function adjustSkills(category) {
 
 if (location.href.includes("https")) {
   document.getElementById("projects").innerHTML = 0;
-
+  
   getData('https://api.github.com/users/rinoship77');
   getData('https://api.github.com/repos/rinoship77/mesprojets');
 }
 
+setTimeout(() => {
+  document.getElementById("placeholder").innerHTML = "";
+}, 3000);
 adjustSkills("languages");
 adjustSkills("softwares");
