@@ -281,8 +281,8 @@ if (location.href.includes("https")) {
   getData('https://api.github.com/repos/rinoship77/mesprojets');
 }
 
-setTimeout(() => {
-  document.getElementById("placeholder").innerHTML = "";
-}, 3000);
+// setTimeout(() => {
+//   document.getElementById("placeholder").innerHTML = "";
+// }, 3000);
 adjustSkills("languages");
 adjustSkills("softwares");
