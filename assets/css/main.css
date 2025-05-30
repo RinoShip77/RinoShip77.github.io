@@ -207,7 +207,6 @@
 .typewriter {
   color: var(--accent-color);
   font-family: var(--coding-font);
-  font-size: 1.2em;
   --caret: currentcolor;
 }
 
