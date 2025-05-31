@@ -75,125 +75,757 @@
 }
 
 /*--------------------------------------------------------------
+# Loader
+  From Jon Kantner
+  https://codepen.io/jkantner/pen/wvXbboe
+--------------------------------------------------------------*/
+/* Loader */
+.pl,
+.pl__ball,
+.pl__ball-inner-shadow,
+.pl__ball-side-shadows,
+.pl__ball-texture,
+.pl__inner-ring,
+.pl__outer-ring,
+.pl__track-cover {
+  border-radius: 50%;
+}
+
+.pl {
+  position: relative;
+  width: 16em;
+  height: 16em;
+}
+
+.pl__ball,
+.pl__ball-inner-shadow,
+.pl__ball-outer-shadow,
+.pl__ball-side-shadows,
+.pl__ball-texture,
+.pl__ball-texture:before,
+.pl__inner-ring,
+.pl__outer-ring,
+.pl__track-cover {
+  position: absolute;
+}
+
+.pl__ball,
+.pl__ball-inner-shadow,
+.pl__ball-outer-shadow,
+.pl__ball-texture:before,
+.pl__track-cover {
+  animation: ball 3s linear infinite;
+}
+
+.pl__ball {
+  top: calc(50% - 1.25em);
+  left: calc(50% - 1.25em);
+  transform: rotate(0) translateY(-6.5em);
+  width: 2.5em;
+  height: 2.5em;
+}
+
+.pl__ball-inner-shadow {
+  animation-name: ballInnerShadow;
+  box-shadow:
+    0 0.1em 0.2em hsla(0, 0%, 0%, 0.3),
+    0 0 0.2em hsla(0, 0%, 0%, 0.1) inset,
+    0 -1em 0.5em hsla(0, 0%, 0%, 0.15) inset;
+  width: 100%;
+  height: 100%;
+}
+
+.pl__ball-outer-shadow {
+  animation-name: ballOuterShadow;
+  background-image: linear-gradient(hsla(0, 0%, 0%, 0.15), hsla(0, 0%, 0%, 0));
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  filter: blur(2px);
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 250%;
+  transform: rotate(20deg);
+  transform-origin: 50% 0;
+  z-index: -2;
+}
+
+.pl__ball-side-shadows {
+  background-color: hsla(0, 0%, 0%, 0.1);
+  filter: blur(2px);
+  width: 100%;
+  height: 100%;
+  transform: scale(0.75, 1.1);
+  z-index: -1;
+}
+
+.pl__ball-texture {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0, 0, 0);
+}
+
+.pl__ball-texture:before {
+  animation-name: ballTexture;
+  animation-duration: 0.25s;
+  background: url(https://assets.codepen.io/416221/snow.jpg) 0 0 / 50% 100%;
+  content: "";
+  display: block;
+  filter: brightness(1.05);
+  top: 0;
+  right: 0;
+  width: 200%;
+  height: 100%;
+}
+
+.pl__inner-ring {
+  box-shadow:
+    0 -0.25em 0.5em hsla(0, 0%, 100%, 0.4),
+    0 0.5em 0.75em hsla(0, 0%, 100%, 0.4) inset,
+    0 0.5em 0.375em hsla(0, 0%, 0%, 0.15),
+    0 -0.5em 0.75em hsla(0, 0%, 0%, 0.15) inset;
+  top: 2.375em;
+  left: 2.375em;
+  width: calc(100% - 4.75em);
+  height: calc(100% - 4.75em);
+}
+
+.pl__outer-ring {
+  box-shadow:
+    0 -0.45em 0.375em hsla(0, 0%, 0%, 0.15),
+    0 0.5em 0.75em hsla(0, 0%, 0%, 0.15) inset,
+    0 0.25em 0.5em hsla(0, 0%, 100%, 0.4),
+    0 -0.5em 0.75em hsla(0, 0%, 100%, 0.4) inset;
+  top: 0.75em;
+  left: 0.75em;
+  width: calc(100% - 1.5em);
+  height: calc(100% - 1.5em);
+}
+
+.pl__track-cover {
+  animation-name: trackCover;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes ball {
+  from {
+    transform: rotate(0) translateY(-6.5em);
+  }
+
+  50% {
+    transform: rotate(180deg) translateY(-6em);
+  }
+
+  to {
+    transform: rotate(360deg) translateY(-6.5em);
+  }
+}
+
+@keyframes ballInnerShadow {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes ballOuterShadow {
+  from {
+    transform: rotate(20deg);
+  }
+
+  to {
+    transform: rotate(-340deg);
+  }
+}
+
+@keyframes ballTexture {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(50%);
+  }
+}
+
+@keyframes trackCover {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Loading bar
+  From Timothy Batt
+  https://codepen.io/JamminCoder/pen/LYBmbKX
+--------------------------------------------------------------*/
+.loading__bar {
+	position: relative;
+	height: 1.5rem;
+	width: 25rem;
+  margin-top: 1em;
+	background-color: rgb(236, 235, 235);
+	border-radius: 1em;
+	overflow: hidden;
+}
+
+.loading__bar::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "";
+	width: 50%;
+	height: 100%;
+	background: linear-gradient(90deg, rgba(35, 59, 240, 0.333), rgba(111, 126, 243, 0.891));
+	animation: 2s loading-animation infinite;
+	border-radius: 1em;
+}
+
+@keyframes loading-animation {
+	0% {
+		left: -50%;
+	}
+
+	100% {
+		left: 150%;
+	}
+}
+
+/*--------------------------------------------------------------
 # Typewriter effect
   From Alvaro Montoro
   https://codepen.io/alvaromontoro/pen/rNwVpdd
 --------------------------------------------------------------*/
 @keyframes typing {
-  0%, 11.5% { content: ""; }
-  0.5%, 11% { content: "D"; }
-  1%, 10.5% { content: "Dé"; }
-  1.5%, 10% { content: "Dév"; }
-  2%, 9.5% { content: "Déve"; }
-  2.5%, 9% { content: "Dével"; }
-  3%, 8.5% { content: "Dévelo"; }
-  3.5%, 8% { content: "Dévelop"; }
-  4%, 7.5% { content: "Développ"; }
-  4.5%, 7% { content: "Développe"; }
-  5%, 6.5% { content: "Développeu"; }
-  5.5%, 6% { content: "Développeur"; }
 
-  12%, 23.5% { content: ""; }
-  12.5%, 23% { content: "P"; }
-  13%, 22.5% { content: "Pr"; }
-  13.5%, 22% { content: "Pro"; }
-  14%, 21.5% { content: "Prog"; }
-  14.5%, 21% { content: "Progr"; }
-  15%, 20.5% { content: "Progra"; }
-  15.5%, 20% { content: "Program"; }
-  16%, 19.5% { content: "Programm"; }
-  16.5%, 19% { content: "Programme"; }
-  17%, 18.5% { content: "Programmeu"; }
-  17.5%, 18% { content: "Programmeur"; }
+  0%,
+  11.5% {
+    content: "";
+  }
 
-  24%, 34.5% { content: ""; }
-  24.5%, 34% { content: "T"; }
-  25%, 33.5% { content: "Te"; }
-  25.5%, 33% { content: "Tec"; }
-  26%, 32.5% { content: "Tech"; }
-  26.5%, 32% { content: "Techn"; }
-  27%, 31.5% { content: "Techni"; }
-  27.5%, 31% { content: "Technic"; }
-  28%, 30.5% { content: "Technici"; }
-  28.5%, 30% { content: "Technicie"; }
-  29%, 29.5% { content: "Technicien"; }
+  0.5%,
+  11% {
+    content: "D";
+  }
 
-  35%, 46.5% { content: ""; }
-  35.5%, 46% { content: "I"; }
-  36%, 45.5% { content: "In"; }
-  36.5%, 45% { content: "Int"; }
-  37%, 44.5% { content: "Inté"; }
-  37.5%, 44% { content: "Intég"; }
-  38%, 43.5% { content: "Intégr"; }
-  38.5%, 43% { content: "Intégra"; }
-  39%, 42.5% { content: "Intégrat"; }
-  39.5%, 42% { content: "Intégrate"; }
-  40%, 41.5% { content: "Intégrateu"; }
-  40.5%, 41% { content: "Intégrateur"; }
-  
-  47%, 58.5% { content: ""; }
-  47.5%, 58% { content: "C"; }
-  48%, 57.5% { content: "Co"; }
-  48.5%, 57% { content: "Con"; }
-  49%, 56.5% { content: "Conc"; }
-  49.5%, 56% { content: "Conce"; }
-  50%, 55.5% { content: "Concep"; }
-  50.5%, 55% { content: "Concep"; }
-  51%, 54.5% { content: "Concept"; }
-  51.5%, 54% { content: "Concepte"; }
-  52%, 53.5% { content: "Concepteu"; }
-  52.5%, 53% { content: "Concepteur"; }
-  
-  59%, 67.5% { content: ""; }
-  59.5%, 67% { content: "C"; }
-  60%, 66.5% { content: "Cr"; }
-  60.5%, 66% { content: "Cré"; }
-  61%, 65.5% { content: "Créa"; }
-  61.5%, 65% { content: "Créat"; }
-  62%, 64.5% { content: "Créate"; }
-  62.5%, 64% { content: "Créateu"; }
-  63%, 63.5% { content: "Créateur"; }
-  
-  68%, 74.5% { content: ""; }
-  68.5%, 74% { content: "C"; }
-  69%, 73.5% { content: "Co"; }
-  69.5%, 73% { content: "Cod"; }
-  70%, 72.5% { content: "Code"; }
-  70.5%, 72% { content: "Codeu"; }
-  71%, 71.5% { content: "Codeur"; }
-  
-  75%, 88.5% { content: ""; }
-  75.5%, 88% { content: "I"; }
-  76%, 87.5% { content: "In"; }
-  76.5%, 87% { content: "Inf"; }
-  77%, 86.5% { content: "Info"; }
-  77.5%, 86% { content: "Infor"; }
-  78%, 85.5% { content: "Inform"; }
-  78.5%, 85% { content: "Informa"; }
-  79%, 84.5% { content: "Informat"; }
-  79.5%, 84% { content: "Informati"; }
-  80%, 83.5% { content: "Informatic"; }
-  80.5%, 83% { content: "Informatici"; }
-  81%, 82.5% { content: "Informaticie"; }
-  81.5%, 82% { content: "Informaticien"; }
+  1%,
+  10.5% {
+    content: "Dé";
+  }
 
-  89%, 99.8% { content: ""; }
-  89.5%, 99.6% { content: "P"; }
-  90%, 99.4% { content: "Pr"; }
-  90.5%, 99.2% { content: "Pro"; }
-  91%, 99% { content: "Prof"; }
-  91.5%, 98.8% { content: "Profe"; }
-  92%, 98.6% { content: "Profes"; }
-  92.5%, 98.4% { content: "Profess"; }
-  93%, 98.2% { content: "Professi"; }
-  93.5%, 98% { content: "Professio"; }
-  94%, 97.5% { content: "Profession"; }
-  94.5%, 97% { content: "Professionn"; }
-  95%, 96.5% { content: "Professionne"; }
-  95.5%, 96% { content: "Professionnel"; }
+  1.5%,
+  10% {
+    content: "Dév";
+  }
+
+  2%,
+  9.5% {
+    content: "Déve";
+  }
+
+  2.5%,
+  9% {
+    content: "Dével";
+  }
+
+  3%,
+  8.5% {
+    content: "Dévelo";
+  }
+
+  3.5%,
+  8% {
+    content: "Dévelop";
+  }
+
+  4%,
+  7.5% {
+    content: "Développ";
+  }
+
+  4.5%,
+  7% {
+    content: "Développe";
+  }
+
+  5%,
+  6.5% {
+    content: "Développeu";
+  }
+
+  5.5%,
+  6% {
+    content: "Développeur";
+  }
+
+  12%,
+  23.5% {
+    content: "";
+  }
+
+  12.5%,
+  23% {
+    content: "P";
+  }
+
+  13%,
+  22.5% {
+    content: "Pr";
+  }
+
+  13.5%,
+  22% {
+    content: "Pro";
+  }
+
+  14%,
+  21.5% {
+    content: "Prog";
+  }
+
+  14.5%,
+  21% {
+    content: "Progr";
+  }
+
+  15%,
+  20.5% {
+    content: "Progra";
+  }
+
+  15.5%,
+  20% {
+    content: "Program";
+  }
+
+  16%,
+  19.5% {
+    content: "Programm";
+  }
+
+  16.5%,
+  19% {
+    content: "Programme";
+  }
+
+  17%,
+  18.5% {
+    content: "Programmeu";
+  }
+
+  17.5%,
+  18% {
+    content: "Programmeur";
+  }
+
+  24%,
+  34.5% {
+    content: "";
+  }
+
+  24.5%,
+  34% {
+    content: "T";
+  }
+
+  25%,
+  33.5% {
+    content: "Te";
+  }
+
+  25.5%,
+  33% {
+    content: "Tec";
+  }
+
+  26%,
+  32.5% {
+    content: "Tech";
+  }
+
+  26.5%,
+  32% {
+    content: "Techn";
+  }
+
+  27%,
+  31.5% {
+    content: "Techni";
+  }
+
+  27.5%,
+  31% {
+    content: "Technic";
+  }
+
+  28%,
+  30.5% {
+    content: "Technici";
+  }
+
+  28.5%,
+  30% {
+    content: "Technicie";
+  }
+
+  29%,
+  29.5% {
+    content: "Technicien";
+  }
+
+  35%,
+  46.5% {
+    content: "";
+  }
+
+  35.5%,
+  46% {
+    content: "I";
+  }
+
+  36%,
+  45.5% {
+    content: "In";
+  }
+
+  36.5%,
+  45% {
+    content: "Int";
+  }
+
+  37%,
+  44.5% {
+    content: "Inté";
+  }
+
+  37.5%,
+  44% {
+    content: "Intég";
+  }
+
+  38%,
+  43.5% {
+    content: "Intégr";
+  }
+
+  38.5%,
+  43% {
+    content: "Intégra";
+  }
+
+  39%,
+  42.5% {
+    content: "Intégrat";
+  }
+
+  39.5%,
+  42% {
+    content: "Intégrate";
+  }
+
+  40%,
+  41.5% {
+    content: "Intégrateu";
+  }
+
+  40.5%,
+  41% {
+    content: "Intégrateur";
+  }
+
+  47%,
+  58.5% {
+    content: "";
+  }
+
+  47.5%,
+  58% {
+    content: "C";
+  }
+
+  48%,
+  57.5% {
+    content: "Co";
+  }
+
+  48.5%,
+  57% {
+    content: "Con";
+  }
+
+  49%,
+  56.5% {
+    content: "Conc";
+  }
+
+  49.5%,
+  56% {
+    content: "Conce";
+  }
+
+  50%,
+  55.5% {
+    content: "Concep";
+  }
+
+  50.5%,
+  55% {
+    content: "Concep";
+  }
+
+  51%,
+  54.5% {
+    content: "Concept";
+  }
+
+  51.5%,
+  54% {
+    content: "Concepte";
+  }
+
+  52%,
+  53.5% {
+    content: "Concepteu";
+  }
+
+  52.5%,
+  53% {
+    content: "Concepteur";
+  }
+
+  59%,
+  67.5% {
+    content: "";
+  }
+
+  59.5%,
+  67% {
+    content: "C";
+  }
+
+  60%,
+  66.5% {
+    content: "Cr";
+  }
+
+  60.5%,
+  66% {
+    content: "Cré";
+  }
+
+  61%,
+  65.5% {
+    content: "Créa";
+  }
+
+  61.5%,
+  65% {
+    content: "Créat";
+  }
+
+  62%,
+  64.5% {
+    content: "Créate";
+  }
+
+  62.5%,
+  64% {
+    content: "Créateu";
+  }
+
+  63%,
+  63.5% {
+    content: "Créateur";
+  }
+
+  68%,
+  74.5% {
+    content: "";
+  }
+
+  68.5%,
+  74% {
+    content: "C";
+  }
+
+  69%,
+  73.5% {
+    content: "Co";
+  }
+
+  69.5%,
+  73% {
+    content: "Cod";
+  }
+
+  70%,
+  72.5% {
+    content: "Code";
+  }
+
+  70.5%,
+  72% {
+    content: "Codeu";
+  }
+
+  71%,
+  71.5% {
+    content: "Codeur";
+  }
+
+  75%,
+  88.5% {
+    content: "";
+  }
+
+  75.5%,
+  88% {
+    content: "I";
+  }
+
+  76%,
+  87.5% {
+    content: "In";
+  }
+
+  76.5%,
+  87% {
+    content: "Inf";
+  }
+
+  77%,
+  86.5% {
+    content: "Info";
+  }
+
+  77.5%,
+  86% {
+    content: "Infor";
+  }
+
+  78%,
+  85.5% {
+    content: "Inform";
+  }
+
+  78.5%,
+  85% {
+    content: "Informa";
+  }
+
+  79%,
+  84.5% {
+    content: "Informat";
+  }
+
+  79.5%,
+  84% {
+    content: "Informati";
+  }
+
+  80%,
+  83.5% {
+    content: "Informatic";
+  }
+
+  80.5%,
+  83% {
+    content: "Informatici";
+  }
+
+  81%,
+  82.5% {
+    content: "Informaticie";
+  }
+
+  81.5%,
+  82% {
+    content: "Informaticien";
+  }
+
+  89%,
+  99.8% {
+    content: "";
+  }
+
+  89.5%,
+  99.6% {
+    content: "P";
+  }
+
+  90%,
+  99.4% {
+    content: "Pr";
+  }
+
+  90.5%,
+  99.2% {
+    content: "Pro";
+  }
+
+  91%,
+  99% {
+    content: "Prof";
+  }
+
+  91.5%,
+  98.8% {
+    content: "Profe";
+  }
+
+  92%,
+  98.6% {
+    content: "Profes";
+  }
+
+  92.5%,
+  98.4% {
+    content: "Profess";
+  }
+
+  93%,
+  98.2% {
+    content: "Professi";
+  }
+
+  93.5%,
+  98% {
+    content: "Professio";
+  }
+
+  94%,
+  97.5% {
+    content: "Profession";
+  }
+
+  94.5%,
+  97% {
+    content: "Professionn";
+  }
+
+  95%,
+  96.5% {
+    content: "Professionne";
+  }
+
+  95.5%,
+  96% {
+    content: "Professionnel";
+  }
 }
 
 @keyframes blink {
+
   0%,
   100% {
     opacity: 1;
