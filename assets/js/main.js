@@ -29,6 +29,10 @@ function aosInit() {
   * On page load
   */
 window.addEventListener('load', function (e) {
+  if(window.innerWidth <= 540) {
+    document.getElementsByClassName("loading__bar")[0].classList.toggle("d-none");
+  }
+
   setTimeout(() => {
     document.getElementById("spinner").classList.add("d-none");
     document.getElementById("page").classList.remove("d-none");
@@ -46,6 +50,13 @@ document.addEventListener('scroll', function (e) {
 });
 
 /**
+  * On resize
+  */
+window.addEventListener('resize', function (e) {
+  positionSkills();
+});
+
+/**
   * Hide the spinner and show the page
   */
 function main() {
@@ -56,12 +67,13 @@ function main() {
     getData('https://api.github.com/repos/rinoship77/mesprojets');
   }
 
-  adjustSkills("languages");
-  adjustSkills("softwares");
+  aosInit();
+  positionSkills();
   scrollPosition();
   toggleScrolled();
-  aosInit();
   navmenuScrollspy();
+  adjustSkills("languages");
+  adjustSkills("softwares");
 }
 
 /**
@@ -255,7 +267,19 @@ document.querySelector('.scroll-top').addEventListener('click', (e) => {
 });
 
 /**
- * Add a margin to erach skill
+ * Add a margin to each skill
+*/
+function positionSkills() {
+  console.log(window.innerWidth)
+  if(window.innerWidth < 540) {
+    document.getElementById("skills-collapsable").children[0].classList.add("flex-column");
+  } else {
+    document.getElementById("skills-collapsable").children[0].classList.remove("flex-column");
+  }
+}
+
+/**
+ * Add a margin to each skill
 */
 function adjustSkills(category) {
   for (let index = 0; index < document.getElementById(category).children[0].children[0].children.length; index++) {
