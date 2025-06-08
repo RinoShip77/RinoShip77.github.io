@@ -37,6 +37,9 @@ window.addEventListener('load', function (e) {
     document.getElementById("spinner").classList.add("d-none");
     document.getElementById("page").classList.remove("d-none");
     main();
+    setTimeout(() => {
+      document.getElementsByClassName("filter-active")[0].click();
+    }, 750);
   }, 3000);
 });
 
@@ -270,7 +273,6 @@ document.querySelector('.scroll-top').addEventListener('click', (e) => {
  * Add a margin to each skill
 */
 function positionSkills() {
-  console.log(window.innerWidth)
   if(window.innerWidth < 540) {
     document.getElementById("skills-collapsable").children[0].classList.add("flex-column");
   } else {
