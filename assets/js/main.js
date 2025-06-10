@@ -72,11 +72,11 @@ window.addEventListener('resize', function (e) {
   * Hide the spinner and show the page
   */
 function main() {
-  // if (location.href.includes("https")) {
-  document.getElementById("projects").innerHTML = 0;
+  if (location.href.includes("https")) {
+    document.getElementById("projects").innerHTML = 0;
 
-  getData('https://api.github.com/repos/rinoship77/mesprojets');
-  // }
+    getData('https://api.github.com/repos/rinoship77/mesprojets');
+  }
 
   aosInit();
   positionSkills();
